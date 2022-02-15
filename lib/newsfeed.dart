@@ -22,7 +22,7 @@ class _NewsFeedState extends State<NewsFeed> {
             itemBuilder: (context) => [
               PopupMenuItem(child: Row(
                 children: [
-                  Text("Admin Panel")
+                  Text("Admin Panel"),
                 ],
                ),
               ),

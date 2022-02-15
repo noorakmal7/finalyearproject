@@ -35,7 +35,7 @@ class _TimetableState extends State<Timetable> {
             ),
           ],
           bottom: TabBar(
-            indicatorColor: Color.fromRGBO(48, 62, 105, 1),
+            indicatorColor: Color.fromRGBO(254, 203, 41, 1),
             labelColor: Colors.black,
             tabs: [
               Tab(text: "STUDENT'S"),
