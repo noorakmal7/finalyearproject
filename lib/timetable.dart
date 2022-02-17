@@ -1,3 +1,4 @@
+import 'package:finalyearproject/timetable/compare.dart';
 import 'package:finalyearproject/timetable/student.dart';
 import 'package:flutter/material.dart';
 import 'package:finalyearproject/homapage.dart';
@@ -48,7 +49,7 @@ class _TimetableState extends State<Timetable> {
           children: [
             student(),
             student(),
-            student(),
+            compare(),
           ],
         ),
       ),

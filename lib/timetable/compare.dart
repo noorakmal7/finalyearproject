@@ -1,14 +1,13 @@
-import 'package:finalyearproject/timetable/studenttimetable.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
-class student extends StatefulWidget {
+class compare extends StatefulWidget {
 
   @override
-  _studentState createState() => _studentState();
+  _compareState createState() => _compareState();
 }
 
-class _studentState extends State<student> {
+class _compareState extends State<compare> {
   List<dynamic> departments = [];
   List<dynamic> sections = [];
   List<dynamic> batch = [];
@@ -18,12 +17,12 @@ class _studentState extends State<student> {
   String? departmentId;
   String? sectionId;
   String? dayId;
-  
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    
+
     this.departments.add({"ID": 1, "label": "CS"});
     this.departments.add({"ID": 2, "label": "MS"});
     this.departments.add({"ID": 3, "label": "ME"});
@@ -54,7 +53,7 @@ class _studentState extends State<student> {
       {"id": 14, "Batch": "F18-BS(CS)-5-C", "ParentId": 1},
       {"id": 15, "Batch": "F18-BS(CS)-4-A", "ParentId": 1},
       {"id": 16, "Batch": "F18-BS(CS)-4-B", "ParentId": 1},
-];
+    ];
     this.sections = [
       {"id": 1, "Batch": "F18-BS(MS)-8-A", "ParentId": 2},
       {"id": 2, "Batch": "F18-BS(MS)-8-B", "ParentId": 2},
@@ -72,7 +71,7 @@ class _studentState extends State<student> {
       {"id": 14, "Batch": "F19-BS(MS)-5-C", "ParentId": 2},
       {"id": 15, "Batch": "F20-BS(MS)-4-A", "ParentId": 2},
       {"id": 16, "Batch": "F20-BS(MS)-4-B", "ParentId": 2},
-];
+    ];
     this.sections = [
       {"id": 1, "Batch": "F18-BS(ME)-8-A", "ParentId": 3},
       {"id": 2, "Batch": "F18-BS(ME)-8-B", "ParentId": 3},
@@ -90,7 +89,7 @@ class _studentState extends State<student> {
       {"id": 14, "Batch": "F19-BS(ME)-5-C", "ParentId": 3},
       {"id": 15, "Batch": "F20-BS(ME)-4-A", "ParentId": 3},
       {"id": 16, "Batch": "F20-BS(ME)-4-B", "ParentId": 3},
-];
+    ];
     this.sections = [
       {"id": 1, "Batch": "F18-BS(CE)-8-A", "ParentId": 4},
       {"id": 2, "Batch": "F18-BS(CE)-8-B", "ParentId": 4},
@@ -118,7 +117,7 @@ class _studentState extends State<student> {
         child: Scaffold(
           body: SingleChildScrollView(
             child: Container(
-                margin: const EdgeInsets.only(top: 135.0),
+              margin: const EdgeInsets.only(top: 135.0),
               child: Column(
                 children: [
                   FormHelper.dropDownWidget(
@@ -126,78 +125,97 @@ class _studentState extends State<student> {
                       "Select Department",
                       this.departmentId,
                       this.departments,
-                      (onChangedVal) {
+                          (onChangedVal) {
                         this.departmentId = onChangedVal;
 
                         this.batch = this.sections.where(
-                                (batchItem) => batchItem["ParentId"].toString() == onChangedVal.toString(),
+                              (batchItem) => batchItem["ParentId"].toString() == onChangedVal.toString(),
                         )
-                        .toList();
+                            .toList();
                         this.sectionId = null;
                       },
-                      (onValidateVal) {
+                          (onValidateVal) {
                         if (onValidateVal == null) {
                           return "Select Department";
                         }
                         return null;
                       },
-                    borderColor: Color.fromRGBO(254, 203, 41, 1),
-                    borderRadius: 12,
-                    optionValue: "ID",
-                    optionLabel: "label"
-                  ),
-                  SizedBox(height: 18),
-                  FormHelper.dropDownWidget(
-                      context,
-                      "Section",
-                      this.sectionId,
-                      this.sections,
-                      (onChangedVal) {
-                        this.sectionId = onChangedVal;
-                        print("Selected Sections: $onChangedVal");
-                      },
-                      (onValidate){
-                        return null;
-                      },
-                    borderColor: Color.fromRGBO(254, 203, 41, 1),
-                    borderRadius: 12,
-                      optionValue: "id",
-                      optionLabel: "Batch"
-                  ),
-                  SizedBox(height: 18),
-                  FormHelper.dropDownWidget(
-                      context,
-                      "Days",
-                      this.dayId,
-                      this.days,
-                          (onChangedVal) {
-                        this.dayId = onChangedVal;
-                        print("SelectedDays: $onChangedVal");
-                      },
-                          (onValidate){
-                        return null;
-                      },
                       borderColor: Color.fromRGBO(254, 203, 41, 1),
                       borderRadius: 12,
-                      optionValue: "day",
-                      optionLabel: "weekdays",
+                      optionValue: "ID",
+                      optionLabel: "label"
+                  ),
+                  SizedBox(height: 18),
+                  Row(
+                    children: [
+                      FormHelper.dropDownWidget(
+                          context,
+                          "Section",
+                          this.sectionId,
+                          this.sections,
+                              (onChangedVal) {
+                            this.sectionId = onChangedVal;
+                            print("Selected Sections: $onChangedVal");
+                          },
+                              (onValidate){
+                            return null;
+                          },
+                          borderColor: Color.fromRGBO(254, 203, 41, 1),
+                          borderRadius: 12,
+                          optionValue: "id",
+                          optionLabel: "Batch"
+                      ),
+                      FormHelper.dropDownWidget(
+                          context,
+                          "Section",
+                          this.sectionId,
+                          this.sections,
+                              (onChangedVal) {
+                            this.sectionId = onChangedVal;
+                            print("Selected Sections: $onChangedVal");
+                          },
+                              (onValidate){
+                            return null;
+                          },
+                          borderColor: Color.fromRGBO(254, 203, 41, 1),
+                          borderRadius: 12,
+                          optionValue: "id",
+                          optionLabel: "Batch"
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 18),
+                  FormHelper.dropDownWidget(
+                    context,
+                    "Days",
+                    this.dayId,
+                    this.days,
+                        (onChangedVal) {
+                      this.dayId = onChangedVal;
+                      print("SelectedDays: $onChangedVal");
+                    },
+                        (onValidate){
+                      return null;
+                    },
+                    borderColor: Color.fromRGBO(254, 203, 41, 1),
+                    borderRadius: 12,
+                    optionValue: "day",
+                    optionLabel: "weekdays",
                   ),
                   SizedBox(height: 60),
                   SizedBox(
-                      height: 100,
-                      width: 100,
-                  child: RaisedButton(
-                    onPressed: () => {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => StudentTimeTable())),
-                    },
-                    color: Color.fromRGBO(254, 203, 41, 1),
-                    shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.all(Radius.circular(80))
+                    height: 100,
+                    width: 100,
+                    child: RaisedButton(
+                      onPressed: () => {
+
+                      },
+                      color: Color.fromRGBO(254, 203, 41, 1),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(80))
+                      ),
+                      child: new Text('SHOW'),
                     ),
-                    child: new Text('SHOW'),
-                  ),
                   ),
                 ],
               ),
