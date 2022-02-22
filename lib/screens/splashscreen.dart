@@ -1,9 +1,9 @@
-import 'package:finalyearproject/newsfeed.dart';
-import 'package:finalyearproject/portal.dart';
-import 'package:finalyearproject/screens/studentportal.dart';
-import 'package:finalyearproject/timetable.dart';
+import 'package:finalyearproject/screens/newsfeed.dart';
+import 'package:finalyearproject/portal/portal.dart';
+import 'package:finalyearproject/show/studentportal.dart';
+import 'package:finalyearproject/screens/timetable.dart';
 import 'package:flutter/material.dart';
-import 'package:finalyearproject/homapage.dart';
+import 'package:finalyearproject/screens/homapage.dart';
 
 
 

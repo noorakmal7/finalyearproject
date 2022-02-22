@@ -1,5 +1,5 @@
-import 'package:finalyearproject/homapage.dart';
-import 'package:finalyearproject/newsfeed.dart';
+import 'package:finalyearproject/screens/homapage.dart';
+import 'package:finalyearproject/screens/newsfeed.dart';
 import 'package:finalyearproject/timetable/student.dart';
 import 'package:flutter/material.dart';
 

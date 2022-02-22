@@ -11,7 +11,7 @@ class StudentTimeTable extends StatelessWidget {
             Container(
               height: 80,
               width: 400,
-              margin: const EdgeInsets.only(top: 30.0),
+              margin: const EdgeInsets.only(top: 35.0),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
@@ -45,7 +45,7 @@ class StudentTimeTable extends StatelessWidget {
             Container(
               height: 175,
               width: 400,
-              margin: const EdgeInsets.only(top: 10.0),
+              margin: const EdgeInsets.only(top: 8.0),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
@@ -58,22 +58,24 @@ class StudentTimeTable extends StatelessWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Text("Sir Waseem Akram",
-                              style:  TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 170),
-                              child: Text("B102",
+                        Container(
+                          child: Row(
+                            children: [
+                              Text("Sir Waseem Akram",
                                 style:  TextStyle(
                                     fontSize: 16,
                                     color: Colors.white),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(left: 168),
+                                child: Text("B102",
+                                  style:  TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 36,bottom: 30),
@@ -103,7 +105,7 @@ class StudentTimeTable extends StatelessWidget {
             Container(
               height: 175,
               width: 400,
-              margin: const EdgeInsets.only(top: 10.0),
+              margin: const EdgeInsets.only(top: 8.0),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
@@ -124,7 +126,7 @@ class StudentTimeTable extends StatelessWidget {
                                   color: Colors.white),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 205),
+                              padding: const EdgeInsets.only(left: 200),
                               child: Text("B102",
                                 style:  TextStyle(
                                     fontSize: 16,
@@ -161,7 +163,7 @@ class StudentTimeTable extends StatelessWidget {
             Container(
               height: 175,
               width: 400,
-              margin: const EdgeInsets.only(top: 10.0),
+              margin: const EdgeInsets.only(top: 8.0),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
@@ -182,7 +184,7 @@ class StudentTimeTable extends StatelessWidget {
                                   color: Colors.white),
                             ),
                             Padding(
-                                padding: const EdgeInsets.only(left: 240),
+                                padding: const EdgeInsets.only(left: 234),
                               child: Text("B102",
                                 style:  TextStyle(
                                     fontSize: 16,

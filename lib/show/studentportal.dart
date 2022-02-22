@@ -10,25 +10,6 @@ class StudentPortal extends StatefulWidget {
 
 class _StudentPortalState extends State<StudentPortal> {
 
-//   late WebViewController _controller;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         resizeToAvoidBottomInset: false,
-//         body: WebView(
-//           initialUrl: "https://sp.leads.edu.pk/",
-//           javascriptMode: JavascriptMode.unrestricted,
-//           onWebViewCreated: (WebViewController webviewcontroller){
-//             _controller = webviewcontroller;
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
   late String title,url;
   bool isLoading=true;
 
@@ -43,6 +24,7 @@ class _StudentPortalState extends State<StudentPortal> {
       home: Stack(
         children: <Widget>[
           WebView(
+            zoomEnabled: true,
             initialUrl: "https://sp.leads.edu.pk/",
             javascriptMode: JavascriptMode.unrestricted,
             onPageFinished: (finish) {

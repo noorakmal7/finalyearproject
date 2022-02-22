@@ -1,20 +1,27 @@
-import 'package:finalyearproject/screens/studentportal.dart';
+import 'package:finalyearproject/timetable/compare.dart';
+import 'package:finalyearproject/timetable/student.dart';
+import 'package:finalyearproject/timetable/teacher.dart';
 import 'package:flutter/material.dart';
+import 'package:finalyearproject/screens/homapage.dart';
 
-class Portal extends StatelessWidget {
+class Timetable extends StatefulWidget {
 
+  @override
+  _TimetableState createState() => _TimetableState();
+}
 
+class _TimetableState extends State<Timetable> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0.5,
           centerTitle: true,
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
-          title: Text("LLU LMS"),
+          title: Text("Time Table"),
           actions: [
             Padding(padding: EdgeInsets.only(right: 10),
               child: PopupMenuButton(
@@ -30,18 +37,20 @@ class Portal extends StatelessWidget {
             ),
           ],
           bottom: TabBar(
-            indicatorColor: Color.fromRGBO(48, 62, 105, 1),
+            indicatorColor: Color.fromRGBO(254, 203, 41, 1),
             labelColor: Colors.black,
             tabs: [
-              Tab(text: "STUDENT"),
-              Tab(text: "TEACHER"),
+              Tab(text: "STUDENT'S"),
+              Tab(text: "TEACHER'S"),
+              Tab(text: "COMPARE"),
             ],
           ),
         ),
         body: TabBarView(
           children: [
-            StudentPortal(),
-            StudentPortal(),
+            student(),
+            teacher(),
+            student(),
           ],
         ),
       ),

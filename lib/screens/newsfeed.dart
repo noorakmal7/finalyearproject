@@ -1,4 +1,4 @@
-import 'package:finalyearproject/loginpage.dart';
+import 'package:finalyearproject/screens/loginpage.dart';
 import 'package:flutter/material.dart';
 
 class NewsFeed extends StatefulWidget {

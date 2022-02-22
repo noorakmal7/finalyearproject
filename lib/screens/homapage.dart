@@ -1,7 +1,7 @@
-import 'package:finalyearproject/newsfeed.dart';
-import 'package:finalyearproject/portal.dart';
+import 'package:finalyearproject/screens/newsfeed.dart';
+import 'package:finalyearproject/portal/portal.dart';
 import 'package:flutter/material.dart';
-import 'package:finalyearproject/timetable.dart';
+import 'package:finalyearproject/screens/timetable.dart';
 
 class HomePage extends StatefulWidget {
 const HomePage({Key? key}) : super(key: key);
