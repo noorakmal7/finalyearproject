@@ -3,12 +3,12 @@ import 'package:finalyearproject/show/studenttimetable.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
-class student extends StatefulWidget {
+class StudentDS extends StatefulWidget {
   @override
-  _studentState createState() => _studentState();
+  _StudentDSState createState() => _StudentDSState();
 }
 
-class _studentState extends State<student> {
+class _StudentDSState extends State<StudentDS> {
   List<dynamic> departments = [];
   List<dynamic> sections = [];
   List<dynamic> batch = [];
@@ -40,6 +40,7 @@ class _studentState extends State<student> {
       {"day": 5, "weekdays": "Friday"},
       {"day": 6, "weekdays": "Saturday"},
       {"day": 7, "weekdays": "Sunday"},
+
     ];
 
     this.sections = [
@@ -144,7 +145,7 @@ class _studentState extends State<student> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => StudentTimeTable())),
+                                builder: (context) => StudentDateSheet())),
                       }
                   },
                   color: _color,

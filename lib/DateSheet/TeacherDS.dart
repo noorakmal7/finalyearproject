@@ -5,12 +5,12 @@ import 'package:snippet_coder_utils/FormHelper.dart';
 
 import '../show/StudentDateSheet.dart';
 
-class teacher extends StatefulWidget {
+class TeacherDS extends StatefulWidget {
   @override
-  _teacherState createState() => _teacherState();
+  _TeacherDSState createState() => _TeacherDSState();
 }
 
-class _teacherState extends State<teacher> {
+class _TeacherDSState extends State<TeacherDS> {
   TextEditingController teacherController = TextEditingController();
   List<dynamic> teachers = [];
   List<dynamic> days = [];
@@ -108,7 +108,7 @@ class _teacherState extends State<teacher> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => StudentTimeTable())),
+                            builder: (context) => StudentDateSheet())),
                   },
                   color: _color,
                   shape: RoundedRectangleBorder(

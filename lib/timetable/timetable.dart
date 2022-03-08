@@ -1,11 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:finalyearproject/timetable/compare.dart';
 import 'package:finalyearproject/timetable/student.dart';
 import 'package:finalyearproject/timetable/teacher.dart';
-import 'package:flutter/material.dart';
-import 'package:finalyearproject/screens/homapage.dart';
 
 class Timetable extends StatefulWidget {
-
   @override
   _TimetableState createState() => _TimetableState();
 }
@@ -23,14 +21,14 @@ class _TimetableState extends State<Timetable> {
           backgroundColor: Colors.white,
           title: Text("Time Table"),
           actions: [
-            Padding(padding: EdgeInsets.only(right: 10),
+            Padding(
+              padding: EdgeInsets.only(right: 10),
               child: PopupMenuButton(
                 itemBuilder: (context) => [
-                  PopupMenuItem(child: Row(
-                    children: [
-                      Text("Admin Panel")
-                    ],
-                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: [Text("Admin Panel")],
+                    ),
                   ),
                 ],
               ),
@@ -50,7 +48,7 @@ class _TimetableState extends State<Timetable> {
           children: [
             student(),
             teacher(),
-            student(),
+            compare(),
           ],
         ),
       ),

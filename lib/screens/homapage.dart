@@ -1,25 +1,26 @@
+import 'package:finalyearproject/DateSheet/DateSheet.dart';
 import 'package:finalyearproject/screens/newsfeed.dart';
 import 'package:finalyearproject/portal/portal.dart';
 import 'package:flutter/material.dart';
-import 'package:finalyearproject/screens/timetable.dart';
+import 'package:finalyearproject/timetable/timetable.dart';
 
 class HomePage extends StatefulWidget {
-const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
-@override
-State<HomePage> createState() => _HomePageState();
+  @override
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
   int _currentIndex = 0;
   final List<Widget> _children = [
     NewsFeed(),
     Portal(),
     Timetable(),
+    DateSheet(),
   ];
-  void onTappedBar(int index)
-  {
+
+  void onTappedBar(int index) {
     setState(() {
       _currentIndex = index;
     });
@@ -47,19 +48,22 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("News Feed"),
+            label: "News Feed",
             backgroundColor: Colors.white,
           ),
-
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text("LLU LMS"),
+            label: "LLU LMS",
             backgroundColor: Colors.white,
           ),
-
           BottomNavigationBarItem(
             icon: Icon(Icons.access_time),
-            title: Text("TimeTable"),
+            label: "TimeTable",
+            backgroundColor: Colors.white,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.date_range_outlined),
+            label: "DateSheet",
             backgroundColor: Colors.white,
           ),
         ],

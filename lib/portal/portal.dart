@@ -1,8 +1,7 @@
-import 'package:finalyearproject/show/studentportal.dart';
+import 'package:finalyearproject/portal/studentportal.dart';
 import 'package:flutter/material.dart';
 
 class Portal extends StatelessWidget {
-
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class Portal extends StatelessWidget {
             ),
           ],
           bottom: TabBar(
-            indicatorColor: Color.fromRGBO(48, 62, 105, 1),
+            indicatorColor: Color.fromRGBO(254, 203, 41, 1),
             labelColor: Colors.black,
             tabs: [
               Tab(text: "STUDENT"),

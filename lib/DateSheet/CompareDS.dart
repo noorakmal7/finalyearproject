@@ -1,14 +1,15 @@
-import 'package:finalyearproject/show/StudentDateSheet.dart';
 import 'package:finalyearproject/show/studenttimetable.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
-class student extends StatefulWidget {
+import '../show/StudentDateSheet.dart';
+
+class CompareDS extends StatefulWidget {
   @override
-  _studentState createState() => _studentState();
+  _CompareDSState createState() => _CompareDSState();
 }
 
-class _studentState extends State<student> {
+class _CompareDSState extends State<CompareDS> {
   List<dynamic> departments = [];
   List<dynamic> sections = [];
   List<dynamic> batch = [];
@@ -17,9 +18,9 @@ class _studentState extends State<student> {
   List<dynamic> selectedSections = [];
 
   String? departmentId;
-  String? sectionId;
+  String? section1Id;
+  String? section2Id;
   String? dayId;
-
   Color _color = Colors.grey;
 
   @override
@@ -40,6 +41,7 @@ class _studentState extends State<student> {
       {"day": 5, "weekdays": "Friday"},
       {"day": 6, "weekdays": "Saturday"},
       {"day": 7, "weekdays": "Sunday"},
+
     ];
 
     this.sections = [
@@ -64,8 +66,7 @@ class _studentState extends State<student> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(top: 135.0),
@@ -74,7 +75,6 @@ class _studentState extends State<student> {
               FormHelper.dropDownWidget(context, "Select Department",
                   this.departmentId, this.departments, (onChangedVal) {
                 this.departmentId = onChangedVal;
-                print(departments[int.parse(onChangedVal) - 1]["label"]);
                 setState(() {
                   this.selectedSections = this
                       .sections
@@ -86,7 +86,8 @@ class _studentState extends State<student> {
                       .toList();
                 });
 
-                this.sectionId = null;
+                this.section1Id = null;
+                this.section2Id = null;
               }, (onValidateVal) {
                 if (onValidateVal == null) {
                   return "Select Department";
@@ -98,18 +99,36 @@ class _studentState extends State<student> {
                   optionValue: "ID",
                   optionLabel: "label"),
               SizedBox(height: 18),
-              FormHelper.dropDownWidget(
-                  context, "Section", this.sectionId, this.selectedSections,
-                  (onChangedVal) {
-                this.sectionId = onChangedVal;
-                print("Selected Sections: $onChangedVal");
-              }, (onValidate) {
-                return null;
-              },
-                  borderColor: Color.fromRGBO(48, 62, 105, 1),
-                  borderRadius: 12,
-                  optionValue: "id",
-                  optionLabel: "Batch"),
+              Row(
+                children: [
+                  Expanded(
+                    child: FormHelper.dropDownWidget(context, "Section1",
+                        this.section1Id, this.selectedSections, (onChangedVal) {
+                      this.section1Id = onChangedVal;
+                      print("Selected 1 Sections: $onChangedVal");
+                    }, (onValidate) {
+                      return null;
+                    },
+                        borderColor: Color.fromRGBO(48, 62, 105, 1),
+                        borderRadius: 12,
+                        optionValue: "id",
+                        optionLabel: "Batch"),
+                  ),
+                  Expanded(
+                    child: FormHelper.dropDownWidget(context, "Section2",
+                        this.section2Id, this.selectedSections, (onChangedVal) {
+                      this.section2Id = onChangedVal;
+                      print("Selected 2 Sections: $onChangedVal");
+                    }, (onValidate) {
+                      return null;
+                    },
+                        borderColor: Color.fromRGBO(48, 62, 105, 1),
+                        borderRadius: 12,
+                        optionValue: "id",
+                        optionLabel: "Batch"),
+                  ),
+                ],
+              ),
               SizedBox(height: 18),
               FormHelper.dropDownWidget(
                 context,
@@ -118,12 +137,14 @@ class _studentState extends State<student> {
                 this.days,
                 (onChangedVal) {
                   this.dayId = onChangedVal;
-                  if (this.departmentId != null && this.sectionId != null) {
+                  print("SelectedDays: $onChangedVal");
+                  if (this.departmentId != null &&
+                      this.section1Id != null &&
+                      this.section2Id != null) {
                     setState(() {
                       _color = Color.fromRGBO(254, 203, 41, 1);
                     });
                   }
-                  print("SelectedDays: $onChangedVal");
                 },
                 (onValidate) {
                   return null;
@@ -139,13 +160,10 @@ class _studentState extends State<student> {
                 width: 100,
                 child: RaisedButton(
                   onPressed: () => {
-                    if (this.departmentId != null && this.sectionId != null)
-                      {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => StudentTimeTable())),
-                      }
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StudentDateSheet())),
                   },
                   color: _color,
                   shape: RoundedRectangleBorder(
@@ -157,6 +175,6 @@ class _studentState extends State<student> {
           ),
         ),
       ),
-    ));
+    );
   }
 }

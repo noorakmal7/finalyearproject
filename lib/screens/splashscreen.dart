@@ -1,12 +1,5 @@
-import 'package:finalyearproject/screens/newsfeed.dart';
-import 'package:finalyearproject/portal/portal.dart';
-import 'package:finalyearproject/show/studentportal.dart';
-import 'package:finalyearproject/screens/timetable.dart';
 import 'package:flutter/material.dart';
 import 'package:finalyearproject/screens/homapage.dart';
-
-
-
 
 
 class SplashScreen extends StatefulWidget {
