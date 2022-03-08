@@ -1,16 +1,26 @@
+import 'package:flutter/material.dart';
 import 'package:finalyearproject/timetable/compare.dart';
 import 'package:finalyearproject/timetable/student.dart';
 import 'package:finalyearproject/timetable/teacher.dart';
-import 'package:flutter/material.dart';
-import 'package:finalyearproject/screens/homapage.dart';
+
+import '../screens/loginpage.dart';
 
 class Timetable extends StatefulWidget {
-
   @override
   _TimetableState createState() => _TimetableState();
 }
 
 class _TimetableState extends State<Timetable> {
+  void onSelected(BuildContext context, int item) {
+    switch (item) {
+      case 0:
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -23,15 +33,12 @@ class _TimetableState extends State<Timetable> {
           backgroundColor: Colors.white,
           title: Text("Time Table"),
           actions: [
-            Padding(padding: EdgeInsets.only(right: 10),
-              child: PopupMenuButton(
+            Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: PopupMenuButton<int>(
+                onSelected: (item) => onSelected(context, item),
                 itemBuilder: (context) => [
-                  PopupMenuItem(child: Row(
-                    children: [
-                      Text("Admin Panel")
-                    ],
-                  ),
-                  ),
+                  PopupMenuItem(value: 0, child: Text("Admin Panel")),
                 ],
               ),
             ),
@@ -50,7 +57,7 @@ class _TimetableState extends State<Timetable> {
           children: [
             student(),
             teacher(),
-            student(),
+            compare(),
           ],
         ),
       ),

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "310227093894",
+    "project_id": "llu-talib-e-ilm",
+    "storage_bucket": "llu-talib-e-ilm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310227093894:android:b72a95900b4c36541a0407",
+        "android_client_info": {
+          "package_name": "com.example.finalyearproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310227093894-g32rfa4dsrv1e3tlk7hkgh9895q8trds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.finalyearproject",
+            "certificate_hash": "b7a70f701717315778b575f6650554b69ccd1d67"
+          }
+        },
+        {
+          "client_id": "310227093894-herbj290mdlp12p5sc0oagkdsm54egmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQz51_M6KoOH_cyyHhLIufxCFKs0Ssays"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310227093894-herbj290mdlp12p5sc0oagkdsm54egmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
