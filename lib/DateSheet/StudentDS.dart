@@ -3,12 +3,12 @@ import 'package:finalyearproject/show/studenttimetable.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
-class student extends StatefulWidget {
+class StudentDS extends StatefulWidget {
   @override
-  _studentState createState() => _studentState();
+  _StudentDSState createState() => _StudentDSState();
 }
 
-class _studentState extends State<student> {
+class _StudentDSState extends State<StudentDS> {
   List<dynamic> departments = [];
   List<dynamic> sections = [];
   List<dynamic> batch = [];
@@ -40,6 +40,7 @@ class _studentState extends State<student> {
       {"day": 5, "weekdays": "Friday"},
       {"day": 6, "weekdays": "Saturday"},
       {"day": 7, "weekdays": "Sunday"},
+
     ];
 
     this.sections = [
@@ -93,7 +94,7 @@ class _studentState extends State<student> {
                 }
                 return null;
               },
-                  borderColor: Color.fromRGBO(48, 62, 105, 1),
+                  borderColor: Color.fromRGBO(254, 203, 41, 1),
                   borderRadius: 12,
                   optionValue: "ID",
                   optionLabel: "label"),
@@ -106,7 +107,7 @@ class _studentState extends State<student> {
               }, (onValidate) {
                 return null;
               },
-                  borderColor: Color.fromRGBO(48, 62, 105, 1),
+                  borderColor: Color.fromRGBO(254, 203, 41, 1),
                   borderRadius: 12,
                   optionValue: "id",
                   optionLabel: "Batch"),
@@ -120,7 +121,7 @@ class _studentState extends State<student> {
                   this.dayId = onChangedVal;
                   if (this.departmentId != null && this.sectionId != null) {
                     setState(() {
-                      _color = Color.fromRGBO(254, 203, 41, 1);
+                      _color = Color.fromRGBO(48, 62, 105, 1);
                     });
                   }
                   print("SelectedDays: $onChangedVal");
@@ -128,7 +129,7 @@ class _studentState extends State<student> {
                 (onValidate) {
                   return null;
                 },
-                borderColor: Color.fromRGBO(48, 62, 105, 1),
+                borderColor: Color.fromRGBO(254, 203, 41, 1),
                 borderRadius: 12,
                 optionValue: "day",
                 optionLabel: "weekdays",
@@ -144,7 +145,7 @@ class _studentState extends State<student> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => StudentTimeTable())),
+                                builder: (context) => StudentDateSheet())),
                       }
                   },
                   color: _color,
